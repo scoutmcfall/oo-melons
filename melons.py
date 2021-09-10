@@ -16,6 +16,10 @@ class AbstractMelonOrder():
 
         base_price = 5
         total = (1 + self.tax) * self.qty * base_price
+        if self.species == "Christmas":
+            total = (total * 1.5)
+        if (self.order_type == "international") and (self.qty < 10):
+            total = (total + 3)
 
         return total
 
